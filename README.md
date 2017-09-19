@@ -1,6 +1,6 @@
 # HealthApp
 The group project: 
-Exercise monitoring for people with high blood pressure
+Hypertension Exercise Monitor
 
 Group Members: 
 Rufeng Tu 
