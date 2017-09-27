@@ -11,3 +11,7 @@ def hello(request):
 def calendar(request):
     context          = {}
     return render(request, 'calendar.html', context)
+
+def login(request):
+    context          = {}
+    return render(request, 'login.html', context)
