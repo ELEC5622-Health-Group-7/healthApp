@@ -14,6 +14,10 @@ function login(){
     }
 }
 
+function showRegister(){
+      self.location='register';
+}
+
 function checkUser(){
 	getUser();
 	for(var i=0;i<user_list.length;i++){

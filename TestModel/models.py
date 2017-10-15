@@ -6,4 +6,4 @@ class Test(models.Model):
 
 class User(models.Model):
     name = models.CharField(max_length=20)
-    password = models.CharField(max_length=6)
+    password = models.CharField(max_length=30)

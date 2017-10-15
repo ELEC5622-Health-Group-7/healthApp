@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>register</title>
+    <style type="text/css">
+        body{
+	font-family: "微软雅黑";
+	font-size: 14px;
+	background-image: url(assets/images/8.jpg) ;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size: cover;
+	background-attachment:fixed
+}
+    </style>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/gloab.css" rel="stylesheet">
+    <link href="assets/css/index.css" rel="stylesheet">
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/js/register.js"></script>
+    <script src="assets/js/registorData.js"></script>
+</head>
+<body class="bgf4">
+<div class="login-box f-mt10 f-pb50">
+	<div class="main bgf">    
+    	<div class="reg-box-pan display-inline">  
+        	<div class="step">        	
+                
+            </div>
+        	<div class="reg-box" id="verifyCheck" style="margin-top:20px;">
+            	<div class="part1">                	
+                    <div class="item col-xs-12">
+                        <span class="intelligent-label f-fl"><b class="ftx04">*</b>username：</span>    
+                        <div class="f-fl item-ifo">
+                            <input type="text" maxlength="20" class="txt03 f-r3 required" tabindex="1" data-valid="isNonEmpty||between:3-20||isUname" data-error="username can not empty||length3-20||Can only enter letters, numbers, underlined, and  letters at the beginning" id="adminNo" />                            <span class="ie8 icon-close close hide"></span>
+                            <label class="icon-sucessfill blank hide"></label>
+                            <label class="focus"><span>
+								3-20, alphabet, number, underlined combination, starting with letter</span></label>
+                            <label class="focus valid"></label>
+                        </div>
+                    </div>
+      
+                    <div class="item col-xs-12">
+                        <span class="intelligent-label f-fl"><b class="ftx04">*</b>password：</span>    
+                        <div class="f-fl item-ifo">
+                            <input type="password" id="password" maxlength="20" class="txt03 f-r3 required" tabindex="3" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:6-20||level:2" data-error="password can not empty||password length 6-20||
+The password is too simple to have a stolen risk, suggest a combination of letters + numbers" /> 
+                            <span class="ie8 icon-close close hide" style="right:55px"></span>
+                            <span class="showpwd" data-eye="password"></span>                        
+                            <label class="icon-sucessfill blank hide"></label>
+                            <label class="focus">
+6-20 English, numbers, combinations of characters</label>
+                            <label class="focus valid"></label>
+                            <span class="clearfix"></span>
+                            <label class="strength">
+                            	<span class="f-fl f-size12">safe level：</span>
+                            	<b><i>weak</i><i>normal</i><i>strong</i></b>
+                            </label>    
+                        </div>
+                    </div>
+                    <div class="item col-xs-12">
+                        <span class="intelligent-label f-fl"><b class="ftx04">*</b>confirm password：</span>    
+                        <div class="f-fl item-ifo">
+                            <input type="password" maxlength="20" class="txt03 f-r3 required" tabindex="4" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:6-16||isRepeat:password" data-error="password can not empty||password length 6-20||two password entries are inconsistent" id="rePassword" />
+                            <span class="ie8 icon-close close hide" style="right:55px"></span>
+                            <span class="showpwd" data-eye="rePassword"></span>
+                            <label class="icon-sucessfill blank hide"></label>
+                            <label class="focus">please enter the above password again</label> 
+                            <label class="focus valid"></label>                          
+                        </div>
+                    </div>
+                   
+                    
+                    
+                    <div class="item col-xs-12">
+                        <span class="intelligent-label f-fl">&nbsp;</span>    
+                        <div class="f-fl item-ifo">
+                           <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part1">submit</a>                         
+                        </div>
+                    </div> 
+                </div>
+                
+                
+                <div class="part2 text-center" style="display:none;padding-left:0px">
+                	<h3>success </h3>
+                    <p class="c-666 f-mt30 f-mb50">go to <a href="customer_bundlingdoctors.html" class="c-blue">health assistant</a></p>
+                </div>          
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+var signal;
+$(function(){	
+	
+	$("#btn_part1").click(function(){						
+		if(!verifyCheck._click()) return;
+		signal=registor();
+		if(signal=="success"){
+			$(".part1").hide();
+			$(".part2").show();
+			$(".step li").eq(1).addClass("on");
+		}else{
+			alert("fail");
+		}
+		
+	});
+	
+	
+});
+function showoutc(){$(".m-sPopBg,.m-sPopCon").show();}
+function closeClause(){
+	$(".m-sPopBg,.m-sPopCon").hide();		
+}
+</script>
+</body>
+</html>

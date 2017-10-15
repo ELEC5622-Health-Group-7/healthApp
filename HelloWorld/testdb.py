@@ -35,4 +35,32 @@ def getuserdb(request):
          newlist.append(dic)
        jstr = dumps(newlist)
        return HttpResponse(jstr, content_type='application/json')
-    
+
+
+def insertuserdb(request):
+    if request.method == 'GET':
+        Uname=request.GET.get('Uname')
+        Upassword=request.GET.get('Upassword')
+        Newuser= User(name=Uname, password=Upassword)
+        Newuser.save()
+        dic = {}
+        key = 'message'
+        value='success'
+        dic[key] = value
+        jstr = dumps(dic)
+        return HttpResponse(jstr, content_type='application/json')
+
+def checkUsername(request):
+    if request.method == 'GET':
+        Uname=request.GET.get('Uname')
+        Olduser=User.objects.filter(name=Uname)
+        dic = {}
+        if Olduser is None:
+            key = 'message'
+            value = 'yes'
+        else:
+            key = 'message'
+            value = 'no'
+        dic[key] = value
+        jstr = dumps(dic)
+        return HttpResponse(jstr, content_type='application/json')
