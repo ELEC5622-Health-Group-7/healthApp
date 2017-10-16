@@ -19,6 +19,7 @@ def userdb(request):
     test1.save()
     return HttpResponse("<p>数据添加成功！</p>")
 
+#login
 def getuserdb(request):
      if request.method == 'GET' :
        list = User.objects.all()
@@ -26,6 +27,9 @@ def getuserdb(request):
        print(list)
        for user in list:
          dic = {}
+         key2='uid'
+         ivalue=user.id
+         dic[key2] = ivalue
          key='uname'
          uvalue=user.name
          dic[key]=uvalue
@@ -36,7 +40,7 @@ def getuserdb(request):
        jstr = dumps(newlist)
        return HttpResponse(jstr, content_type='application/json')
 
-
+#register
 def insertuserdb(request):
     if request.method == 'GET':
         Uname=request.GET.get('Uname')
@@ -50,17 +54,31 @@ def insertuserdb(request):
         jstr = dumps(dic)
         return HttpResponse(jstr, content_type='application/json')
 
+#register
 def checkUsername(request):
     if request.method == 'GET':
         Uname=request.GET.get('Uname')
         Olduser=User.objects.filter(name=Uname)
         dic = {}
-        if Olduser is None:
+        if len(Olduser)==0  :
             key = 'message'
             value = 'yes'
         else:
             key = 'message'
             value = 'no'
         dic[key] = value
+        jstr = dumps(dic)
+        return HttpResponse(jstr, content_type='application/json')
+
+#register
+def getNewAccountdb(request):
+    if request.method == 'GET':
+        Uname=request.GET.get('Uname')
+        Newuser=User.objects.filter(name=Uname)
+        for user in Newuser:
+            dic = {}
+            key = 'uid'
+            uvalue = user.id
+            dic[key] = uvalue
         jstr = dumps(dic)
         return HttpResponse(jstr, content_type='application/json')

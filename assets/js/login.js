@@ -6,11 +6,12 @@ function login(){
 	login_name=document.getElementById("logname").value;
 	login_password=document.getElementById("logpass").value;
 	//alert("username:"+login_name+"userpassword:"+login_password);
-	isUser=checkUser();
-    if(isUser=="no"){
+	checkUser();
+	isUser=user;
+    if(isUser==null){
         alert("no user");
     }else{
-        self.location='hello';
+        self.location='chooseFunction?id='+isUser.uid;
     }
 }
 
@@ -21,12 +22,14 @@ function showRegister(){
 function checkUser(){
 	getUser();
 	for(var i=0;i<user_list.length;i++){
-		if(login_name==user_list[i].uname&&login_password==user_list[i].upassword){
-			user=user_list[i];
-			return user;
-		}else{
-		    return 'no';
+		if(login_name==user_list[i].uname){
+		  if(login_password==user_list[i].upassword){
+		        user=user_list[i];
+		  }
+
+			//alert("*****"+user_list[i].uname).length;
 		}
+		//alert("*****"+user_list[i].uname.length);
 	}
 }
 

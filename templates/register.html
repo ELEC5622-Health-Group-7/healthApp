@@ -85,7 +85,7 @@ The password is too simple to have a stolen risk, suggest a combination of lette
                 
                 <div class="part2 text-center" style="display:none;padding-left:0px">
                 	<h3>success </h3>
-                    <p class="c-666 f-mt30 f-mb50">go to <a href="customer_bundlingdoctors.html" class="c-blue">health assistant</a></p>
+                    <p class="c-666 f-mt30 f-mb50">go to <a href="" class="c-blue" id="register11">HEM</a></p>
                 </div>          
             </div>
         </div>
@@ -100,13 +100,7 @@ $(function(){
 	$("#btn_part1").click(function(){						
 		if(!verifyCheck._click()) return;
 		signal=registor();
-		if(signal=="success"){
-			$(".part1").hide();
-			$(".part2").show();
-			$(".step li").eq(1).addClass("on");
-		}else{
-			alert("fail");
-		}
+
 		
 	});
 	

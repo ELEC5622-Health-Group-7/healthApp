@@ -1,4 +1,4 @@
-var uname,upassword,message,uid,checksignal;
+var uname,upassword,message,checksignal,user_id;
 function registor(){
 	uname=$("#adminNo").val();
 	upassword=$("#password").val(); 
@@ -6,7 +6,9 @@ function registor(){
     checkUsername();
     if(checksignal=='yes'){
         insertCustomer();
-        return message;
+        getNewAccount();
+        //$("#register11").attr("href","chooseFunction?id="+user_id);
+        window.location.href="chooseFunction?id="+user_id
     }else{
         alert("username has existed !")
     }
@@ -46,4 +48,24 @@ function insertCustomer(){
 		}
 	});
 }
+
+function getNewAccount(){
+	$.ajax({
+		type : "GET",
+		async : false,
+		dataType : "json",
+		url : "/getNewAccountdb",
+		data : {
+				Uname:uname
+
+				},
+		success : function(msg) {
+
+			var json = msg;
+			user_id = json.uid;
+		}
+	});
+}
+
+
 

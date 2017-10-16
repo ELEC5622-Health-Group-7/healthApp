@@ -19,3 +19,7 @@ def login(request):
 def register(request):
     context = {}
     return render(request, 'register.html', context)
+
+def chooseFunction(request):
+    context = {}
+    return render(request, 'chooseFunction.html', context)
