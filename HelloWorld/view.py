@@ -8,9 +8,21 @@ def hello(request):
     context['hello'] = 'Hello World!'
     return render(request, 'hello.html', context)
 
-def calendar(request):
+def monitor_heart(request):
     context          = {}
-    return render(request, 'calendar.html', context)
+    return render(request, 'monitor_heart.jsp', context)
+
+def monitor_blood(request):
+    context          = {}
+    return render(request, 'monitor_blood.jsp', context)
+
+def tracker_heart(request):
+    context          = {}
+    return render(request, 'tracker_heart.jsp', context)
+
+def tracker_blood(request):
+    context          = {}
+    return render(request, 'tracker_blood.jsp', context)
 
 def login(request):
     context          = {}

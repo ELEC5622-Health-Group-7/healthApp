@@ -3,7 +3,10 @@ from . import view,testdb
  
 urlpatterns = [
     url(r'^hello$', view.hello),
-    url(r'^calendar$', view.calendar),
+    url(r'^monitor_heart$', view.monitor_heart),
+    url(r'^monitor_blood$', view.monitor_blood),
+    url(r'^tracker_heart$', view.tracker_heart),
+    url(r'^tracker_blood$', view.tracker_blood),
     url(r'^login$', view.login),
     url(r'^register$', view.register),
     url(r'^chooseFunction$', view.chooseFunction),
