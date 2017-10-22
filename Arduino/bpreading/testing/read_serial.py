@@ -16,7 +16,7 @@ def read_serial():
     except:
         print('\nNo Connection Detected!')
         print('Please connect the device to computer and try again.')
-        raw_input('Press Enter after connection. ')
+        raw_input('Press Enter after connection. \n')
     else:
         # measure_state is the measuring flag
         measure_state = 0
