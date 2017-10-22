@@ -1,5 +1,8 @@
 import time
+import getpass
 from read_serial import read_serial
+from write_file import write_file
+from user_auth import user_auth
 # from data_transfer import ex_transfer, daily_transfer
 
 # variable for user authentication
@@ -14,25 +17,33 @@ data_ex_pre = ''
 data_ex_post = ''
 # for daily monitor, 1 variable to store the data as "user_id,date,
 data_daily = ''
+# file path for pre and post exercise and daily tracking
+file_path = 'data.txt'
 
 
 print('\nWelcome to use our HEM system!')
 while True:
     while True:
+        auth_state = 0
+        user_id = 0
         user_name = raw_input('Please enter your user name: \n')
-        user_psw = raw_input('Please enter your password: \n')
-        print('Authentication ongoing. \nPlease wait. ')
+        #user_psw = raw_input('Please enter your password: \n')
+        user_psw = getpass.getpass('Please enter your password: \n')
+        print('Authentication ongoing... \nPlease wait. ')
 
         # Authentication
-        # if ( user_auth() ):
-        if (1):
+        auth_state, user_id = user_auth(user_name)
+        if (auth_state == 1):
             print('\nUser ' + user_name + ', welcome!')
+            print('Your user ID is: ' + str(user_id))
             break
+        elif (auth_state == 0):
+            print('\nWrong account or password! \nPlease enter again. ')
         else:
-            print('Wrong account or password! Please enter again!\n')
+            print('\nCannot connect to server. \nPlease try again. ')
     # after authentication
     while True:
-        print('Enter \"0\" to change user account. ')
+        print('Enter \"0\" to switch to another user account. ')
         print('Enter \"1\" for Exercise Comparison. ')
         print('Enter \"2\" for Daily Tracking.')
         function_type = raw_input('Please choose a function: \n')
@@ -46,23 +57,22 @@ while True:
                 print('Enter \"1\" to measure before the exercise. ')
                 print('Enter \"2\" to measure after the exercise. ')
                 monitor_type = raw_input('Please enter: \n')
-                if (monitor_type =='0'):
+                if (monitor_type == '0'):
                     print('\nYou chose to go back. ')
                     break
-                elif (monitor_type == "1"):
+                elif (monitor_type == '1'):
                     print('\nYou chose to measure before the exercise. ')
                     print('Initialising... ')
+                    # read the data from serial port
                     data_ex_pre = read_serial()
                     # write the data before exercise into file
-                    f = file('data.txt', 'w')
-                    f.write(user_id + ',' + monitor_type + ',' + data_ex_pre)
-                    f.close()
+                    write_file(file_path, user_id, function_type, data_to_write, date)
                     print('Uploading... \n')
                     # ex_transfer()
                     if (1):
                         print('Upload successful... ')
                     else:
-                        raw_input('Upload failed. Press Enter to try again')
+                        raw_input('Upload failed. Press Enter to try again. \n')
 
 
 
