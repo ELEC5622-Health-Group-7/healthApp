@@ -15,7 +15,6 @@ data_ex_pre = ""
 data_ex_post = ""
 
 
-
 try:
     print("\nWelcome to use our HEM system!")
     while(1):
@@ -60,8 +59,6 @@ try:
                         f.write(user_id + " 1 " + data_ex_pre)
                         f.close()
                         ex_transfer()
-
-
                     elif (monitor_type == "2"):
                         data_ex_post = read_serial()
 
