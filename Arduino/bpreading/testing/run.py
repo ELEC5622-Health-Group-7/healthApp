@@ -40,7 +40,7 @@ try:
             print("Please choose a function: ")
             function_type = raw_input()
             if (function_type == "0"):
-                print("\nYou chose to change user account.")
+                print("\nYou chose to switch to another account.")
                 break
             elif (function_type == "1"):
                 print("\nYou chose the Exercise Comparison.")
