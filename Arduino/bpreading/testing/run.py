@@ -13,6 +13,9 @@ monitor_type = ""
 # for exercise monitor, 2 variables to store the data respectively
 data_ex_pre = ""
 data_ex_post = ""
+# for daily monitor, 1 variable to store the data as "user_id,date,
+data_daily = ""
+
 
 
 try:
@@ -56,35 +59,33 @@ try:
 
                         # write the data before measurement into file
                         f = file("data.txt", "w")
-                        f.write(user_id + " 1 " + data_ex_pre)
+                        f.write(user_id + ",1," + data_ex_pre)
                         f.close()
                         ex_transfer()
                     elif (monitor_type == "2"):
                         data_ex_post = read_serial()
 
-                        # write the data after measurement into file
+                        # write the data before measurement into file
                         f = file("data.txt", "w")
-                        f.write(user_id + " ")
-                        f.write(time.strftime("%Y-%m-%d", time.localtime()))
-                        f.write(" " + data)
+                        f.write(user_id + ",2," + data_ex_pre)
                         f.close()
                         ex_transfer()
 
                     else:
-                        print("Command unrecognized, please enter again.\n")
+                        print("\nCommand unrecognized, please enter again.")
             elif (function_type == "2"):
                 print("\nYou chose the Daily Tracking.")
-                data = read_serial()
+                data_daily = read_serial()
 
                 # write daily tracking data into file
                 f = file("data.txt", "w")
-                f.write(user_id + " ")
+                f.write(user_id + ",")
                 f.write(time.strftime("%Y-%m-%d", time.localtime()))
-                f.write(" " + data)
+                f.write("," + data_daily)
                 f.close()
                 daily_transfer()
             else:
-                print("Command Unrecognized, please try again.\n")
+                print("\nCommand Unrecognized, please try again.")
 
 except:
     print("There is an error, please run the HEM app again")
