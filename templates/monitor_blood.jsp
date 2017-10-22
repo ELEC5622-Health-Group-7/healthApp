@@ -238,22 +238,22 @@
 						<div class="row" style="width: 50%; float:left;">
 						      <div class="col-xs-12">
 						      <label  style="float:left;width: 90px;margin-left:6%;"for="form-type">Before exercise:</label>
-						            <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47">
-													<span class="percent">Diastolic:0</span>
+						            <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47" id="pic_before_dia">
+													<span class="percent" id="pie_before_dia">Diastolic:0</span>
 												</div>
-									 <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47">
-													<span class="percent">Systolic:0</span>
+									 <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47" id="pic_before_sys">
+													<span class="percent" id="pie_before_sys">Systolic:0</span>
 												</div>
 						      </div><!-- /.col -->
 						</div><!-- /.row -->
 						<div class="row" style="width: 50%; float:left;margin-top:100px"">
 						      <div class="col-xs-12">
 						      <label  style="float:left;width: 90px;margin-left:6%;"for="form-type">After exercise:</label>
-						            <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47">
-													<span class="percent">Diastolic:0</span>
+						            <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47" id="pic_after_dia">
+													<span class="percent" id="pie_after_dia">Diastolic:0</span>
 												</div>
-									 <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47">
-													<span class="percent">Systolic:0</span>
+									 <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47" id="pic_after_sys">
+													<span class="percent" id="pie_after_sys">Systolic:0</span>
 												</div>
 						      </div><!-- /.col -->
 						</div><!-- /.row -->
@@ -326,6 +326,7 @@
 		<!-- inline scripts related to this page -->
 
 		<script type="text/javascript">
+		var sport_name, monitor_type,user_id,info_list,diasto,systo,percent1,percent2;
 			jQuery(function($) {
 
 
@@ -342,21 +343,12 @@
                     complete: function() {
                         $( "#progressLabel" ).text( "Finish" );
                         $("#bars").css("display","none");
+                        $( "#progressbar" ).progressbar( "value", 0 );
+                        excute();
                     }
 				});
 
                 var oldie = /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase());
-				$('.easy-pie-chart.percentage').each(function(){
-					$(this).easyPieChart({
-						barColor: $(this).data('color'),
-						trackColor: '#EEEEEE',
-						scaleColor: false,
-						lineCap: 'butt',
-						lineWidth: 8,
-						animate: oldie ? false : 1000,
-						size:155
-					}).css('color', $(this).data('color'));
-				});
 
              function progress() {
                     var val = $( "#progressbar" ).progressbar( "value" ) ;
@@ -365,6 +357,109 @@
                             setTimeout( progress, 100 );
                         }
                }
+
+                     function excute(){
+                        var request = new Object();
+	                     request = GetRequest();
+	                     user_id=request['id'] ;
+                         sport_name= $( "#form-field-1" ).val();
+                         monitor_type=$( "#form-type" ).val();
+                         getMonitorData();
+                         getPercentage();
+                         if(monitor_type=="1"){
+                            $( "#pie_before_dia" ).html("Diastolic:"+diasto);
+                            $( "#pie_before_sys" ).html("Systolic:"+systo);
+                            $( "#pic_before_dia" ).attr("data-percent",percent1);
+                            $( "#pic_before_sys" ).attr("data-percent",percent2);
+                      $('#pic_before_dia').easyPieChart({
+						barColor: '#DC143C',
+						trackColor: '#EEEEEE',
+						scaleColor: false,
+						lineCap: 'butt',
+						lineWidth: 8,
+						animate: oldie ? false : 1000,
+						size:155
+					}).css('color', '#DC143C');
+
+					 $('#pic_before_sys').easyPieChart({
+						barColor: '#DC143C',
+						trackColor: '#EEEEEE',
+						scaleColor: false,
+						lineCap: 'butt',
+						lineWidth: 8,
+						animate: oldie ? false : 1000,
+						size:155
+					}).css('color', '#DC143C');
+
+                         }else{
+                            $( "#pie_after_dia" ).html("Diastolic:"+diasto);
+                            $( "#pie_after_sys" ).html("Systolic:"+systo);
+                            $( "#pic_after_dia" ).attr("data-percent",percent1);
+                            $( "#pic_after_sys" ).attr("data-percent",percent2);
+                      $('#pic_after_dia').easyPieChart({
+						barColor: '#DC143C',
+						trackColor: '#EEEEEE',
+						scaleColor: false,
+						lineCap: 'butt',
+						lineWidth: 8,
+						animate: oldie ? false : 1000,
+						size:155
+					}).css('color', '#DC143C');
+
+					 $('#pic_after_sys').easyPieChart({
+						barColor: '#DC143C',
+						trackColor: '#EEEEEE',
+						scaleColor: false,
+						lineCap: 'butt',
+						lineWidth: 8,
+						animate: oldie ? false : 1000,
+						size:155
+					}).css('color', '#DC143C');
+
+                         }
+
+
+               }
+
+                function getPercentage(){
+                        p=100/200;
+                        percent1=diasto*p;
+                        percent2=systo*p;
+               }
+
+               function getMonitorData(){
+	                $.ajax({
+		                    type : "GET",
+		                    async : false,
+		                    dataType : "json",
+		                    url : "/exercise",
+		                    data : {id:user_id,
+		                            type:monitor_type
+		                    },
+		                    success : function(msg) {
+
+			                    var json = msg;
+			                    info_list = json;
+			                    diasto=info_list.diastolic;
+			                    systo=info_list.systolic;
+		                        }
+	                        });
+                        }
+
+               //获取url中参数
+				function GetRequest() {
+				    var url = location.search; //获取url中"?"符后的字串
+				    var theRequest = new Object();
+				    if (url.indexOf("?") != -1) {
+				        var str = url.substr(1);
+				        //alert(str);
+				        strs = str.split("&");
+				        for (var i = 0; i < strs.length; i++) {
+				            theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);//获取中文参数转码<span style="font-family: Arial, Helvetica, sans-serif;">decodeURI</span>，（unescape只针对数字，中文乱码)
+				        }
+				    }
+				    return theRequest;
+				}
 
                 $( "#excute_button" ).click(function(){
                  $( "#bars" ).css("display","block");

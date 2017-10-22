@@ -16,5 +16,7 @@ urlpatterns = [
     url(r'^getuserdb$', testdb.getuserdb),
     url(r'^insertuserdb$', testdb.insertuserdb),
     url(r'^getNewAccountdb$', testdb.getNewAccountdb),
-    url(r'^checkUsername$', testdb.checkUsername)
+    url(r'^checkUsername$', testdb.checkUsername),
+    url(r'^exercise$', testdb.getExerciseData),
+    url(r'^tracker$', testdb.getTrackerData)
 ]

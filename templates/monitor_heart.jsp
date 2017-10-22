@@ -237,16 +237,16 @@
 						<div class="row" style="width: 30%; float:left;margin-left:250px">
 						      <div class="col-xs-12">
 						      <label  style="float:left;width: 90px;margin-left:6%;"for="form-type">Before exercise:</label>
-						            <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47">
-													<span class="percent">Pulse/min:0</span>
+						            <div class="easy-pie-chart percentage" data-percent="100" data-color="#D15B47" id="pic_before">
+													<span class="percent" id="pie_before">Pulse/min:0</span>
 												</div>
 						      </div><!-- /.col -->
 						</div><!-- /.row -->
 						<div class="row" style="width: 30%; float:left;margin-left:250px;margin-top:100px"">
 						      <div class="col-xs-12">
 						      <label  style="float:left;width: 90px;margin-left:6%;"for="form-type">After exercise:</label>
-						            <div class="easy-pie-chart percentage" data-percent="0" data-color="#D15B47">
-													<span class="percent">Pulse/min:0</span>
+						            <div class="easy-pie-chart percentage" data-percent="100" data-color="#D15B47" id="pic_after">
+													<span class="percent" id="pie_after">Pulse/min:0</span>
 												</div>
 						      </div><!-- /.col -->
 						</div><!-- /.row -->
@@ -319,6 +319,8 @@
 		<!-- inline scripts related to this page -->
 
 		<script type="text/javascript">
+		var sport_name, monitor_type,user_id,info_list,heart_rate,percent;
+
 			jQuery(function($) {
 
 
@@ -335,21 +337,14 @@
                     complete: function() {
                         $( "#progressLabel" ).text( "Finish" );
                         $("#bars").css("display","none");
+                        $( "#progressbar" ).progressbar( "value", 0 );
+                        excute();
                     }
 				});
 
                 var oldie = /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase());
-				$('.easy-pie-chart.percentage').each(function(){
-					$(this).easyPieChart({
-						barColor: $(this).data('color'),
-						trackColor: '#EEEEEE',
-						scaleColor: false,
-						lineCap: 'butt',
-						lineWidth: 8,
-						animate: oldie ? false : 1000,
-						size:155
-					}).css('color', $(this).data('color'));
-				});
+
+
 
              function progress() {
                     var val = $( "#progressbar" ).progressbar( "value" ) ;
@@ -358,6 +353,83 @@
                             setTimeout( progress, 100 );
                         }
                }
+
+               function excute(){
+                        var request = new Object();
+	                     request = GetRequest();
+	                     user_id=request['id'] ;
+                         sport_name= $( "#form-field-1" ).val();
+                         monitor_type=$( "#form-type" ).val();
+                         getMonitorData();
+                         getPercentage();
+                         if(monitor_type=="1"){
+                            $( "#pie_before" ).html("Pulse/min:"+heart_rate);
+                            $( "#pic_before" ).attr("data-percent",percent);
+                            $('#pic_before').easyPieChart({
+						barColor: '#DC143C',
+						trackColor: '#EEEEEE',
+						scaleColor: false,
+						lineCap: 'butt',
+						lineWidth: 8,
+						animate: oldie ? false : 1000,
+						size:155
+					}).css('color', '#DC143C');
+
+                         }else{
+                            $( "#pie_after" ).html("Pulse/min:"+heart_rate);
+                             $( "#pic_after" ).attr("data-percent",percent);
+                            $('#pic_after').easyPieChart({
+						barColor: '#DC143C',
+						trackColor: '#EEEEEE',
+						scaleColor: false,
+						lineCap: 'butt',
+						lineWidth: 8,
+						animate: oldie ? false : 1000,
+						size:155
+					}).css('color', '#DC143C');
+
+                         }
+
+
+               }
+
+               function getPercentage(){
+                        p=100/120;
+                        percent=heart_rate*p;
+               }
+
+               function getMonitorData(){
+	                $.ajax({
+		                    type : "GET",
+		                    async : false,
+		                    dataType : "json",
+		                    url : "/exercise",
+		                    data : {id:user_id,
+		                            type:monitor_type
+		                    },
+		                    success : function(msg) {
+
+			                    var json = msg;
+			                    info_list = json;
+			                    heart_rate=info_list.pulse;
+		                        }
+	                        });
+                        }
+
+               //获取url中参数
+				function GetRequest() {
+				    var url = location.search; //获取url中"?"符后的字串
+				    var theRequest = new Object();
+				    if (url.indexOf("?") != -1) {
+				        var str = url.substr(1);
+				        //alert(str);
+				        strs = str.split("&");
+				        for (var i = 0; i < strs.length; i++) {
+				            theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);//获取中文参数转码<span style="font-family: Arial, Helvetica, sans-serif;">decodeURI</span>，（unescape只针对数字，中文乱码)
+				        }
+				    }
+				    return theRequest;
+				}
 
                 $( "#excute_button" ).click(function(){
                  $( "#bars" ).css("display","block");

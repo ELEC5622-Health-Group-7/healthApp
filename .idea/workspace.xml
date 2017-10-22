@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3555efc8-8edf-41e5-b9b9-f0195d2bb7f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/cmpCharts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/cmpRandF.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/cmpSecChart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/echarts-219.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/echarts-220.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/echarts-220o.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/echarts-all-2110.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/echarts-plain.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/quxianguanli.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/echarts/rsvrCmpCharts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/echarts-220o.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/blank.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/buttons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/error-404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/error-500.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HelloWorld/testdb.py" afterPath="$PROJECT_DIR$/HelloWorld/testdb.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HelloWorld/urls.py" afterPath="$PROJECT_DIR$/HelloWorld/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestModel/models.py" afterPath="$PROJECT_DIR$/TestModel/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/monitor_blood.jsp" afterPath="$PROJECT_DIR$/templates/monitor_blood.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/monitor_heart.jsp" afterPath="$PROJECT_DIR$/templates/monitor_heart.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tracker_blood.jsp" afterPath="$PROJECT_DIR$/templates/tracker_blood.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tracker_heart.jsp" afterPath="$PROJECT_DIR$/templates/tracker_heart.jsp" />
     </list>
     <ignored path="healthapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,28 +26,7 @@
     <favorites_list name="healthapp" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tracker_heart.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/tracker_heart.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="48" column="57" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tracker_blood.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/tracker_blood.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="341" column="65" selection-start-line="341" selection-start-column="65" selection-end-line="341" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,10 +43,8 @@
       <list>
         <option value="$PROJECT_DIR$/assets/css/default.css" />
         <option value="$PROJECT_DIR$/assets/css/gloab.css" />
-        <option value="$PROJECT_DIR$/TestModel/models.py" />
         <option value="$PROJECT_DIR$/assets/css/index.css" />
         <option value="$PROJECT_DIR$/templates/login.html" />
-        <option value="$PROJECT_DIR$/HelloWorld/testdb.py" />
         <option value="$PROJECT_DIR$/assets/js/login.js" />
         <option value="$PROJECT_DIR$/templates/register.html" />
         <option value="$PROJECT_DIR$/assets/js/registorData.js" />
@@ -91,18 +54,22 @@
         <option value="$PROJECT_DIR$/assets/css/ace.min.css" />
         <option value="$PROJECT_DIR$/templates/chooseFunction.html" />
         <option value="$PROJECT_DIR$/HelloWorld/view.py" />
-        <option value="$PROJECT_DIR$/HelloWorld/urls.py" />
-        <option value="$PROJECT_DIR$/assets/js/chooseFunction.js" />
-        <option value="$PROJECT_DIR$/templates/monitor_blood.jsp" />
-        <option value="$PROJECT_DIR$/templates/monitor_heart.jsp" />
         <option value="$PROJECT_DIR$/templates/tracker_heart.jsp" />
         <option value="$PROJECT_DIR$/templates/tracker_blood.jsp" />
+        <option value="$PROJECT_DIR$/HelloWorld/settings.py" />
+        <option value="$PROJECT_DIR$/TestModel/models.py" />
+        <option value="$PROJECT_DIR$/HelloWorld/testdb.py" />
+        <option value="$PROJECT_DIR$/HelloWorld/urls.py" />
+        <option value="$PROJECT_DIR$/assets/js/chooseFunction.js" />
+        <option value="$PROJECT_DIR$/templates/monitor_heart.jsp" />
+        <option value="$PROJECT_DIR$/templates/monitor_blood.jsp" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="17" />
-    <option name="width" value="1378" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -186,6 +153,10 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -197,7 +168,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="TestModel" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -435,10 +406,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="17" y="0" width="1378" height="744" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24375919" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24158126" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -474,27 +445,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/monitor_heart.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/monitor_heart.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HelloWorld/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -580,13 +535,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/blank.html" />
-    <entry file="file://C:/Python27/Lib/site-packages/Django-1.8.18-py2.7.egg/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="132" column="38" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -606,13 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="113" column="1" selection-start-line="113" selection-start-column="1" selection-end-line="113" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HelloWorld/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2337">
-          <caret line="123" column="5" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -665,13 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestModel/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -679,24 +613,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5168">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HelloWorld/testdb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-475">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -725,24 +645,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="893">
-          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/registorData.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/chooseFunction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -760,34 +666,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HelloWorld/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/monitor_blood.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="241" column="84" selection-start-line="241" selection-start-column="84" selection-end-line="241" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/monitor_heart.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="370" column="7" selection-start-line="172" selection-start-column="20" selection-end-line="370" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/echarts/cmpRandF.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -795,22 +677,109 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/tracker_heart.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
+        <state relative-caret-position="912">
           <caret line="48" column="57" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="57" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/login_ico.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/8.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="235" column="7" selection-start-line="235" selection-start-column="7" selection-end-line="235" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/tracker_blood.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state relative-caret-position="293">
           <caret line="341" column="65" selection-start-line="341" selection-start-column="65" selection-end-line="341" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HelloWorld/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="123" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/chooseFunction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="5" column="24" selection-start-line="3" selection-start-column="6" selection-end-line="5" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/Django-1.8.18-py2.7.egg/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1217">
+          <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HelloWorld/testdb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="93" column="25" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="25" />
+          <folding>
+            <element signature="e#26#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HelloWorld/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/monitor_heart.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="339" column="24" selection-start-line="339" selection-start-column="24" selection-end-line="339" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/monitor_blood.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="408" column="34" selection-start-line="408" selection-start-column="34" selection-end-line="408" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestModel/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="12" />
           <folding />
         </state>
       </provider>

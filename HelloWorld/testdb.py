@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from json import loads, dumps
 
 from TestModel.models import Test
-from TestModel.models import User
+from TestModel.models import User,Exercise_monitor,Daily_tracker
 
  
 # 数据库操作
@@ -80,5 +80,51 @@ def getNewAccountdb(request):
             key = 'uid'
             uvalue = user.id
             dic[key] = uvalue
+        jstr = dumps(dic)
+        return HttpResponse(jstr, content_type='application/json')
+
+#exercise
+def getExerciseData(request):
+    if request.method == 'GET':
+        user_id = request.GET.get('id')
+        monitor_type=request.GET.get('type')
+        infolist=Exercise_monitor.objects.filter(user_id=user_id,monitor_type=monitor_type)
+        for info in infolist:
+            dic = {}
+            pkey = 'pulse'
+            pvalue = info.pulse
+            dic[pkey] = pvalue
+            dkey = 'diastolic'
+            dvalue=info.diastolic
+            dic[dkey] = dvalue
+            skey='systolic'
+            svalue=info.systolic
+            dic[skey] = svalue
+        jstr = dumps(dic)
+        return HttpResponse(jstr, content_type='application/json')
+
+#daily tracker
+def getTrackerData(request):
+    if request.method == 'GET':
+        user_id = request.GET.get('id')
+        infolist=Daily_tracker.objects.filter(user_id=user_id).order_by("time")
+        i=0
+        for info in infolist:
+            dic = {}
+            tkey='time'
+            tvalue=info.time
+            dic[tkey] = tvalue
+            pkey = 'pulse'
+            pvalue = info.pulse
+            dic[pkey] = pvalue
+            dkey = 'diastolic'
+            dvalue=info.diastolic
+            dic[dkey] = dvalue
+            skey='systolic'
+            svalue=info.systolic
+            dic[skey] = svalue
+            i=i+1
+            if i==8 :
+                break
         jstr = dumps(dic)
         return HttpResponse(jstr, content_type='application/json')
