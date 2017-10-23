@@ -24,7 +24,7 @@ file_path = 'data.txt'
 print('\nWelcome to use our HEM system!')
 while True:
     while True:
-        auth_state = 0
+        auth_state = 1
         user_id = 0
         user_name = raw_input('Please enter your user name: \n')
         #user_psw = raw_input('Please enter your password: \n')
@@ -32,10 +32,9 @@ while True:
         print('Authentication ongoing... \nPlease wait. ')
 
         # Authentication
-        auth_state, user_id = user_auth(user_name)
+        # auth_state, user_id = user_auth(user_name)
         if (auth_state == 1):
-            print('\nUser ' + user_name + ', welcome!')
-            print('Your user ID is: ' + str(user_id))
+            print('\nUser ' + user_name + ', welcome! \nYour user ID is: ' + str(user_id))
             break
         elif (auth_state == 0):
             print('\nWrong account or password! \nPlease enter again. ')
@@ -44,14 +43,14 @@ while True:
     # after authentication
     while True:
         print('Enter \"0\" to switch to another user account. ')
-        print('Enter \"1\" for Exercise Comparison. ')
-        print('Enter \"2\" for Daily Tracking.')
+        print('Enter \"1\" for Exercise Monitoring. ')
+        print('Enter \"2\" for Daily Tracking. ')
         function_type = raw_input('Please choose a function: \n')
         if (function_type == '0'):
             print('\nYou chose to switch to another account. ')
             break
         elif (function_type == '1'):
-            print('\nYou chose the Exercise Comparison. ')
+            print('\nYou chose the Exercise Monitoring. ')
             while True:
                 print('Enter \"0\" to go back. ')
                 print('Enter \"1\" to measure before the exercise. ')
@@ -61,45 +60,48 @@ while True:
                     print('\nYou chose to go back. ')
                     break
                 elif (monitor_type == '1'):
-                    print('\nYou chose to measure before the exercise. ')
-                    print('Initialising... ')
+                    print('\nYou chose to measure before the exercise. \nInitialising... ')
                     # read the data from serial port
-                    data_ex_pre = read_serial()
-                    # write the data before exercise into file
-                    write_file(file_path, user_id, function_type, data_to_write, date)
+                    data_to_write = read_serial()
+                    # write the data before exercise into file, set date to 0
+                    write_file(file_path, user_id, monitor_type, data_to_write, 0)
                     print('Uploading... \n')
                     # ex_transfer()
                     if (1):
-                        print('Upload successful... ')
+                        print('Upload is successful. \nPlease remember to measure again after exercise. ')
                     else:
                         raw_input('Upload failed. Press Enter to try again. \n')
-
-
-
-
                 elif (monitor_type == '2'):
-                    print('\nYou chose to measure after the exercise. ')
-                    print('Initialising... ')
-                    data_ex_post = read_serial()
-
-                    # write the data after exercise into file
-                    f = file('data.txt', 'w')
-                    f.write(user_id + "," + monitor_type + "," + data_ex_post)
-                    f.close()
+                    print('\nYou chose to measure after the exercise. \nInitialising... ')
+                    # read the data from serial port
+                    data_to_write = read_serial()
+                    # write the data after exercise into file, set date to 0
+                    write_file(file_path, user_id, monitor_type, data_to_write, 0)
+                    print('Uploading... \n')
                     # ex_transfer()
+                    if (1):
+                        print('Upload is successful. Exercise monitoring is done. ')
+                        print('You could login the website and check the results. ')
+                        print('Or you could go back to track daily readings. ')
+                    else:
+                        raw_input('Upload failed. Press Enter to try again. \n')
                 else:
                     print('\nUnrecognized command, please enter again. ')
         elif (function_type == '2'):
-            print('\nYou chose the Daily Tracking.')
-            data_daily = read_serial()
-
-            # write daily tracking data into file
-            f = file('data.txt', 'w')
-            f.write(user_id + ',')
-            f.write(time.strftime('%Y-%m-%d', time.localtime()))
-            f.write(',' + data_daily)
-            f.close()
+            print('\nYou chose the Daily Tracking. \nInitialising... ')
+            # read the data from serial port
+            data_to_write = read_serial()
+            # write the daily tracking data exercise into file, set function_type to 0
+            date = time.strftime('%Y-%m-%d', time.localtime())
+            write_file(file_path, user_id, 0, data_to_write, date)
+            print('Uploading... \n')
             # daily_transfer()
+            if (1):
+                print('Upload is successful. Daily tracking is done.  ')
+                print('You could login the website and check the results. ')
+                print('Or you could measure between exercise. ')
+            else:
+                raw_input('Upload failed. Press Enter to try again. \n')
         else:
             print('\nUnrecognized command... \nPlease try again.')
 #except:
