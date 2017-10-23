@@ -1,9 +1,11 @@
 import time
 import getpass
+import MySQLdb
 from read_serial import read_serial
 from write_file import write_file
-from user_auth import user_auth
-# from data_transfer import ex_transfer, daily_transfer
+from search import db_search
+from exercise_monitor_db import db_execute_exer, read_file_exer, exercise_monitor_db
+from daily_tracker_db.py import db_execute_dai, read_file_dai, daily_tracker_db
 
 # variable for user authentication
 user_name = ''
@@ -32,11 +34,11 @@ while True:
         print('Authentication ongoing... \nPlease wait. ')
 
         # Authentication
-        # auth_state, user_id = user_auth(user_name)
-        if (auth_state == 1):
-            print('\nUser ' + user_name + ', welcome! \nYour user ID is: ' + str(user_id))
+        user_id, auth_state = db_search(user_name, user_psw)
+        if (auth_state == '1'):
+            print('\nUser ' + user_name + ', welcome! \nYour user ID is: ' + user_id)
             break
-        elif (auth_state == 0):
+        elif (auth_state == '0'):
             print('\nWrong account or password! \nPlease enter again. ')
         else:
             print('\nCannot connect to server. \nPlease try again. ')
@@ -66,7 +68,7 @@ while True:
                     # write the data before exercise into file, set date to 0
                     write_file(file_path, user_id, monitor_type, data_to_write, 0)
                     print('Uploading... \n')
-                    # ex_transfer()
+                    exercise_monitor_db(file_path)
                     if (1):
                         print('Upload is successful. \nPlease remember to measure again after exercise. ')
                     else:
@@ -78,7 +80,7 @@ while True:
                     # write the data after exercise into file, set date to 0
                     write_file(file_path, user_id, monitor_type, data_to_write, 0)
                     print('Uploading... \n')
-                    # ex_transfer()
+                    exercise_monitor_db(file_path)
                     if (1):
                         print('Upload is successful. Exercise monitoring is done. ')
                         print('You could login the website and check the results. ')
@@ -95,7 +97,7 @@ while True:
             date = time.strftime('%Y-%m-%d', time.localtime())
             write_file(file_path, user_id, 0, data_to_write, date)
             print('Uploading... \n')
-            # daily_transfer()
+            daily_tracker_db(file_path)
             if (1):
                 print('Upload is successful. Daily tracking is done.  ')
                 print('You could login the website and check the results. ')
