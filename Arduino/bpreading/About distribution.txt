@@ -1,0 +1,12 @@
+Use PyInstaller
+
+cd to the dir of run.py
+
+pyinstaller -F run.py
+
+-F means only 1 exe remained
+there will be 2 folders named dist and build
+and 1 file named run.spec
+
+you only need to copy the dist folder to user's window pc
+
