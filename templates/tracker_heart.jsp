@@ -291,7 +291,7 @@
 	        {
 	            type : 'category',
 	            splitLine: { show:false },
-	            data : ['2017-10-11','2017-10-12','2017-10-13','2017-10-14','2017-10-15','2017-10-16','2017-10-17']
+	            data : []
 
 	        }
 	    ],
@@ -306,7 +306,7 @@
 	        {
 	            name:'heart rate',
 	            type:'line',
-	            data:[90,90,150,110,120,112,100],
+	            data:[],
 	            markPoint : {
                 data : [
                     {type : 'max', name: 'max value'},
@@ -326,7 +326,7 @@
 	    ]
 	};
 
-       myChart.setOption(option,true);
+       //myChart.setOption(option,true);
         </script>
 		<script type="text/javascript">
 			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
@@ -362,6 +362,36 @@
 		<!-- inline scripts related to this page -->
 
 		<script type="text/javascript">
+		var data_list
+		    function loadData(){
+		            $.ajax({
+		                type : "GET",
+		                async : false,
+		                dataType : "json",
+		                url : "/tracker",
+		                data : {id:id},
+		                    success : function(msg) {
+
+			                        var json = msg;
+			                        data_list = json;
+		                        }
+	                    });
+		    }
+
+            function showlinechart(){
+                for(var i=0;i<data_list.length;i++){
+                    option.xAxis[0].data[i] =data_list[i].time;
+                    option.series[0].data[i]=parseInt(data_list[i].pulse);
+
+                }
+                myChart.setOption(option,true);
+            }
+
+		    function excute(){
+		        loadData();
+		        showlinechart();
+		    }
+
 			jQuery(function($) {
 
 
@@ -378,6 +408,8 @@
                     complete: function() {
                         $( "#progressLabel" ).text( "Finish" );
                         $("#bars").css("display","none");
+                        $( "#progressbar" ).progressbar( "value", 0 );
+                        excute();
                     }
 				});
 

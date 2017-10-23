@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
- 
+import datetime
 from django.http import HttpResponse
 from json import loads, dumps
 
@@ -108,11 +108,12 @@ def getTrackerData(request):
     if request.method == 'GET':
         user_id = request.GET.get('id')
         infolist=Daily_tracker.objects.filter(user_id=user_id).order_by("time")
+        datalist = []
         i=0
         for info in infolist:
             dic = {}
             tkey='time'
-            tvalue=info.time
+            tvalue=info.time.strftime('%Y-%m-%d')
             dic[tkey] = tvalue
             pkey = 'pulse'
             pvalue = info.pulse
@@ -123,8 +124,9 @@ def getTrackerData(request):
             skey='systolic'
             svalue=info.systolic
             dic[skey] = svalue
+            datalist.append(dic)
             i=i+1
             if i==8 :
                 break
-        jstr = dumps(dic)
+        jstr = dumps(datalist)
         return HttpResponse(jstr, content_type='application/json')
