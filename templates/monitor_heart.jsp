@@ -29,7 +29,8 @@
 		<link rel="stylesheet" href="assets/css/ace.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
-
+        <link rel="stylesheet" href="assets/css/default.css" />
+		<link rel="stylesheet" href="assets/css/component.css" />
 		<!--[if lte IE 8]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
@@ -166,7 +167,13 @@
 
 
 						</ul><!-- .breadcrumb -->
+                        <div class="nav-search" id="nav-search" style="top:0px">
 
+								<span class="input-icon">
+									<button style="width:100px;height:40px" onclick="showContent()">evaluate</button>
+								</span>
+
+						</div><!-- #nav-search -->
 
 					</div>
 
@@ -261,6 +268,41 @@
 
 		<!-- basic scripts -->
 
+			<div class="md-modal" id="modal-5" style="width:1300px;height:500px;display:none">
+			<div class="md-content" style="height:500px">
+				<h3>evaluation</h3>
+				<div class="main-container-inner">
+				 <div class="main-content" style=" margin-left:0px;">
+					<div class="page-content" style="padding-top:50px; width:100%">
+
+						<div class="row" style="width:100%; margin-left:10px">
+							<div class="col-xs-12" style="width:100%">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row" style="width:100%">
+
+									<div id="eva_content" class="col-sm-6" style="width:100%">
+                                                    sdsdssddsd
+									</div><!-- /span -->
+								</div><!-- /row -->
+
+								<script type="text/javascript">
+									var $path_assets = "assets";//this will be used in gritter alerts containing images
+								</script>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			 </div>
+				<div>
+
+					<button class="md-close" onclick="closeDetail()" style="width:150px;float:left;margin-left:45%">Close me!</button>
+				</div>
+			</div>
+		</div>
+
 		<!--[if !IE]> -->
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -290,7 +332,8 @@
 		</script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		<script src="assets/js/typeahead-bs2.min.js"></script>
-
+        <script src="assets/js/classie.js"></script>
+		<script src="assets/js/modalEffects.js"></script>
 		<!-- page specific plugin scripts -->
 
 		<!--[if lte IE 8]>
@@ -319,7 +362,47 @@
 		<!-- inline scripts related to this page -->
 
 		<script type="text/javascript">
-		var sport_name, monitor_type,user_id,info_list,heart_rate,percent;
+		var sport_name, monitor_type,user_id,info_list,heart_rate,percent,heart_rate_before,heart_rate_after,evaluation_content;
+        function showContent(){
+                signal=check_sportInfo();
+                if(signal==true){
+                     evaluate_sport();
+                    $("#modal-5").css("display","block");
+                }
+
+        }
+
+        function evaluate_sport(){
+            if(parseInt(heart_rate_after)>100){
+                    evaluation_content="the type of sport("+sport_name+") is not good, your heart rate is more than 100 now."
+            }else if (parseInt(heart_rate_after)>50){
+                    evaluation_content="the type of sport("+sport_name+") is good, your heart rate is in the reasonable range. "
+            }else{
+                    evaluation_content="the type of sport("+sport_name+") is not good, your heart rate is lower than 50 now."
+            }
+             $("#eva_content").html(evaluation_content);
+        }
+
+        function check_sportInfo(){
+                if(sport_name==null){
+                    alert("no sports' name");
+                    return false;
+                }
+                if(heart_rate_before==null){
+                    alert("no data of beforing exercise");
+                    return false;
+                }
+                if(heart_rate_after==null){
+                    alert("no data of aftering exercise");
+                    return false;
+                }
+                return true;
+
+        }
+
+        function closeDetail(){
+				$("#modal-5").css("display","none");
+			}
 
 			jQuery(function($) {
 
@@ -363,6 +446,7 @@
                          getMonitorData();
                          getPercentage();
                          if(monitor_type=="1"){
+                            heart_rate_before=heart_rate;
                             $( "#pie_before" ).html("Pulse/min:"+heart_rate);
                             $( "#pic_before" ).attr("data-percent",percent);
                             $('#pic_before').easyPieChart({
@@ -376,6 +460,7 @@
 					}).css('color', '#DC143C');
 
                          }else{
+                            heart_rate_after=heart_rate;
                             $( "#pie_after" ).html("Pulse/min:"+heart_rate);
                              $( "#pic_after" ).attr("data-percent",percent);
                             $('#pic_after').easyPieChart({

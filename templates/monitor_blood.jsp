@@ -30,6 +30,8 @@
 		<link rel="stylesheet" href="assets/css/ace.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/default.css" />
+		<link rel="stylesheet" href="assets/css/component.css" />
 
 		<!--[if lte IE 8]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -167,7 +169,13 @@
 
 
 						</ul><!-- .breadcrumb -->
+                        <div class="nav-search" id="nav-search" style="top:0px">
 
+								<span class="input-icon">
+									<button style="width:100px;height:40px" onclick="showContent()">evaluate</button>
+								</span>
+
+						</div><!-- #nav-search -->
 
 					</div>
 
@@ -267,6 +275,40 @@
 		</div><!-- /.main-container -->
 
 		<!-- basic scripts -->
+        <div class="md-modal" id="modal-5" style="width:1300px;height:500px;display:none">
+			<div class="md-content" style="height:500px">
+				<h3>evaluation</h3>
+				<div class="main-container-inner">
+				 <div class="main-content" style=" margin-left:0px;">
+					<div class="page-content" style="padding-top:50px; width:100%">
+
+						<div class="row" style="width:100%; margin-left:10px">
+							<div class="col-xs-12" style="width:100%">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row" style="width:100%">
+
+									<div id="eva_content" class="col-sm-6" style="width:100%">
+                                                    sdsdssddsd
+									</div><!-- /span -->
+								</div><!-- /row -->
+
+								<script type="text/javascript">
+									var $path_assets = "assets";//this will be used in gritter alerts containing images
+								</script>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			 </div>
+				<div>
+
+					<button class="md-close" onclick="closeDetail()" style="width:150px;float:left;margin-left:45%">Close me!</button>
+				</div>
+			</div>
+		</div>
 
 		<!--[if !IE]> -->
 
@@ -297,7 +339,8 @@
 		</script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		<script src="assets/js/typeahead-bs2.min.js"></script>
-
+        <script src="assets/js/classie.js"></script>
+		<script src="assets/js/modalEffects.js"></script>
 		<!-- page specific plugin scripts -->
 
 		<!--[if lte IE 8]>
@@ -326,7 +369,56 @@
 		<!-- inline scripts related to this page -->
 
 		<script type="text/javascript">
-		var sport_name, monitor_type,user_id,info_list,diasto,systo,percent1,percent2;
+		var sport_name, monitor_type,user_id,info_list,diasto,systo,percent1,percent2,diasto_before,diasto_after,systo_before,systo_after;
+		 function showContent(){
+                signal=check_sportInfo();
+                if(signal==true){
+                     evaluate_sport();
+                    $("#modal-5").css("display","block");
+                }
+
+        }
+
+        function evaluate_sport(){
+            if(parseInt(diasto_after)>90||parseInt(systo_after)>140){
+                    evaluation_content="the type of sport("+sport_name+") is not good, your blood pressure is more than normal level."
+            }else if (parseInt(diasto_after)>80||parseInt(systo_after)>120){
+                    evaluation_content="the type of sport("+sport_name+") is good, your blood pressure is in the reasonable range. "
+            }else{
+                    evaluation_content="the type of sport("+sport_name+") is not good, your blood pressure is lower than normal level."
+            }
+             $("#eva_content").html(evaluation_content);
+        }
+
+        function check_sportInfo(){
+                if(sport_name==null){
+                    alert("no sports' name");
+                    return false;
+                }
+                if(diasto_before==null){
+                    alert("no data of beforing exercise");
+                    return false;
+                }
+                 if(systo_before==null){
+                    alert("no data of beforing exercise");
+                    return false;
+                }
+                if(diasto_after==null){
+                    alert("no data of aftering exercise");
+                    return false;
+                }
+                if(systo_after==null){
+                    alert("no data of aftering exercise");
+                    return false;
+                }
+                return true;
+
+        }
+
+         function closeDetail(){
+				$("#modal-5").css("display","none");
+			}
+
 			jQuery(function($) {
 
 
@@ -367,6 +459,8 @@
                          getMonitorData();
                          getPercentage();
                          if(monitor_type=="1"){
+                         diasto_before=diasto;
+                         systo_before=systo;
                             $( "#pie_before_dia" ).html("Diastolic:"+diasto);
                             $( "#pie_before_sys" ).html("Systolic:"+systo);
                             $( "#pic_before_dia" ).attr("data-percent",percent1);
@@ -392,6 +486,8 @@
 					}).css('color', '#DC143C');
 
                          }else{
+                            diasto_after=diasto;
+                            systo_after=systo;
                             $( "#pie_after_dia" ).html("Diastolic:"+diasto);
                             $( "#pie_after_sys" ).html("Systolic:"+systo);
                             $( "#pic_after_dia" ).attr("data-percent",percent1);
