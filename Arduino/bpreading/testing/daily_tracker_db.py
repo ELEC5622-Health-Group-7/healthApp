@@ -29,7 +29,7 @@ def read_file_dai(file_path):
 
 def delete_dai(file_path):
     sql_lines = []
-    with open(file_path, 'r') as file:
+    with file(file_path, 'r') as file:
         data = file.readlines()
         for line in data:
             a = line.split()
