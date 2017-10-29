@@ -8,22 +8,38 @@ def db_execute_dai(sql):
     try:
         cursor.execute(sql)
         dbs.commit()
+        dbs.close()
+        return 1
     except:
         dbs.rollback()
-    dbs.close()
+        dbs.close()
+        return 0
 
 
 def read_file_dai(file_path):
     sql_lines = []
     with open(file_path, 'r') as file:
-        for line in file.readlines():
+        data = file.readlines()
+        for line in data:
+            a = line.split()
             sql = 'INSERT INTO elec_5622.testmodel_daily_tracker( \
-            user_id, time, pulse, diastolic, systolic) VALUES({0});'.format(line)
+            user_id, time, diastolic, systolic,pulse) VALUES(\"%s\" , \"%s\" , \"%s\" , \"%s\" , \"%s\" );'%(a[0],a[1],a[2],a[3],a[4])
             sql_lines.append(sql)
+    return '\r\n'.join(sql_lines)
 
+def delete_dai(file_path):
+    sql_lines = []
+    with open(file_path, 'r') as file:
+        data = file.readlines()
+        for line in data:
+            a = line.split()
+            sql = "DELETE FROM elec_5622.testmodel_daily_tracker WHERE time = '%s';" %(a[1])
+            sql_lines.append(sql)
     return '\r\n'.join(sql_lines)
 
 def daily_tracker_db(file_path):
-    sql_lines = read_file_dai(file_path)
+    sql_lines = delete_dai(file_path)
     db_execute_dai(sql_lines)
-    return
+    sql_lines = read_file_dai(file_path)
+    a = db_execute_dai(sql_lines)
+    return a

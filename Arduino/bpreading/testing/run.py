@@ -5,7 +5,7 @@ from read_serial import read_serial
 from write_file import write_file
 from search import db_search
 from exercise_monitor_db import db_execute_exer, read_file_exer, exercise_monitor_db
-from daily_tracker_db.py import db_execute_dai, read_file_dai, daily_tracker_db
+from daily_tracker_db import db_execute_dai, read_file_dai, daily_tracker_db
 
 # variable for user authentication
 user_name = ''
@@ -26,17 +26,18 @@ file_path = 'data.txt'
 print('\nWelcome to use our HEM system!')
 while True:
     while True:
-        auth_state = 1
-        user_id = 0
+        auth_state =str(1)
+       # user_id = 0
+        status = 0
         user_name = raw_input('Please enter your user name: \n')
         #user_psw = raw_input('Please enter your password: \n')
         user_psw = getpass.getpass('Please enter your password: \n')
         print('Authentication ongoing... \nPlease wait. ')
 
         # Authentication
-        user_id, auth_state = db_search(user_name, user_psw)
+        user_name , user_id = db_search(user_name, str(user_psw))
         if (auth_state == '1'):
-            print('\nUser ' + user_name + ', welcome! \nYour user ID is: ' + user_id)
+            print('\nUser ' + str(user_name) + ', welcome! \nYour user ID is: ' + str(user_id))
             break
         elif (auth_state == '0'):
             print('\nWrong account or password! \nPlease enter again. ')
@@ -68,8 +69,8 @@ while True:
                     # write the data before exercise into file, set date to 0
                     write_file(file_path, user_id, monitor_type, data_to_write, 0)
                     print('Uploading... \n')
-                    exercise_monitor_db(file_path)
-                    if (1):
+                    status = exercise_monitor_db(file_path)
+                    if (status):
                         print('Upload is successful. \nPlease remember to measure again after exercise. ')
                     else:
                         raw_input('Upload failed. Press Enter to try again. \n')
@@ -80,8 +81,8 @@ while True:
                     # write the data after exercise into file, set date to 0
                     write_file(file_path, user_id, monitor_type, data_to_write, 0)
                     print('Uploading... \n')
-                    exercise_monitor_db(file_path)
-                    if (1):
+                    status = exercise_monitor_db(file_path)
+                    if (status):
                         print('Upload is successful. Exercise monitoring is done. ')
                         print('You could login the website and check the results. ')
                         print('Or you could go back to track daily readings. ')
@@ -97,8 +98,8 @@ while True:
             date = time.strftime('%Y-%m-%d', time.localtime())
             write_file(file_path, user_id, 0, data_to_write, date)
             print('Uploading... \n')
-            daily_tracker_db(file_path)
-            if (1):
+            status = daily_tracker_db(file_path)
+            if (status):
                 print('Upload is successful. Daily tracking is done.  ')
                 print('You could login the website and check the results. ')
                 print('Or you could measure between exercise. ')

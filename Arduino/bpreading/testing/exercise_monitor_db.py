@@ -8,23 +8,41 @@ def db_execute_exer(sql):
     try:
         cursor.execute(sql)
         dbs.commit()
+        dbs.close()
+        return 1
     except:
         dbs.rollback()
-    dbs.close()
+        dbs.close()
+        return 0
 
 
 def read_file_exer(file_path):
     sql_lines = []
     with open(file_path, 'r') as file:
-        for line in file.readlines():
+        data = file.readlines()
+        for line in data:
+            a = line.split()
             sql = 'INSERT INTO elec_5622.testmodel_exercise_monitor( \
-            user_id, monitor_type, pulse, diastolic, systolic) VALUES({0});'.format(line)
+            user_id, monitor_type,  diastolic, systolic,pulse) VALUES(\"%s\" , \"%s\" , \"%s\" , \"%s\" , \"%s\" );'%(a[0],a[1],a[2],a[3],a[4])
             sql_lines.append(sql)
 
     return '\r\n'.join(sql_lines)
 
-def exercise_monitor_db(file_path):
-    sql_lines = read_file_exer(file_path)
-    db_execute_exer(sql_lines)
-    return
+def delete_exer(file_path):
+    sql_lines = []
+    with open(file_path, 'r') as file:
+        data = file.readlines()
+        for line in data:
+            a = line.split()
+            sql = 'DELETE FROM elec_5622.testmodel_exercise_monitor WHERE user_id = "%s" and monitor_type = "%s" ;'%(a[0],a[1])
+            sql_lines.append(sql)
+    return '\r\n'.join(sql_lines)
 
+def exercise_monitor_db(file_path):
+    sql_lines=delete_exer(file_path)
+    db_execute_exer(sql_lines)
+    sql_lines = read_file_exer(file_path)
+    a = db_execute_exer(sql_lines)
+    return a
+
+exercise_monitor_db('data.txt')

@@ -20,7 +20,7 @@ def db_search(Sname,Spassword):
     password = results[0][1]
     user_id = results[0][2]
     if password==Spassword:
-        print "welcome %s!"%(user_name)
+        #print "welcome %s!"%(user_name)
         return [user_name,user_id]
     else:
         print "please register first"
@@ -29,6 +29,3 @@ def db_search(Sname,Spassword):
 
 
 #sql_lines = find_user('1')
-name='3'
-password='3'
-db_search(name,password)
