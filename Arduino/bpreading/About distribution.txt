@@ -1,6 +1,9 @@
-Use PyInstaller
+Use PyInstaller to pack all the dependency modules and files into one exe file. 
 
-cd to the dir of run.py
+If you don't have the PyInstaller module, please run following: 
+pip install pyinstaller
+
+Then, please cd to the dir of run.py
 
 pyinstaller -F run.py
 
