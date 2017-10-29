@@ -18,8 +18,8 @@ def db_execute_dai(sql):
 
 def read_file_dai(file_path):
     sql_lines = []
-    with file(file_path, 'r') as file:
-        data = file.readlines()
+    with file(file_path, 'r') as f:
+        data = f.readlines()
         for line in data:
             a = line.split()
             sql = 'INSERT INTO elec_5622.testmodel_daily_tracker( \
@@ -29,8 +29,8 @@ def read_file_dai(file_path):
 
 def delete_dai(file_path):
     sql_lines = []
-    with file(file_path, 'r') as file:
-        data = file.readlines()
+    with file(file_path, 'r') as f:
+        data = f.readlines()
         for line in data:
             a = line.split()
             sql = "DELETE FROM elec_5622.testmodel_daily_tracker WHERE time = '%s';" %(a[1])
