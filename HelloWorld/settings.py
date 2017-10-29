@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'TestModel',
-    
+    'TryModel',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'HelloWorld.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'elec5622',
+        'NAME': 'nw_db',
         'USER': 'root',
         'PASSWORD': '241033',
         'HOST':'127.0.0.1',
