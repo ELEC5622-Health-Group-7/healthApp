@@ -1,6 +1,6 @@
-#import os, django
-#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "HelloWorld.settings")
-#django.setup()
+import os, django
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "HelloWorld.settings")
+django.setup()
 import unittest
 from login import login
 
