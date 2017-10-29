@@ -3,9 +3,9 @@ The group project:
 Hypertension Exercise Monitor
 
 Group Members: 
-Rufeng Tu 
-Shengtian Zhang 
-Ziqi Wang 
+Rufeng Tu, 
+Shengtian Zhang, 
+Ziqi Wang, 
 
 #
 This project will aim to build a monitoring system for people with hypertension, especially for paitient before and after the activity, to find the healthy activity and sport for the paitient. 
