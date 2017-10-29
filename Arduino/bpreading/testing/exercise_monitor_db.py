@@ -30,7 +30,7 @@ def read_file_exer(file_path):
 
 def delete_exer(file_path):
     sql_lines = []
-    with open(file_path, 'r') as file:
+    with file(file_path, 'r') as file:
         data = file.readlines()
         for line in data:
             a = line.split()
