@@ -34,7 +34,7 @@ Doing proper exercises is highly recommended by experts as an effective way to r
 #
 Usage: 
 OS: windows, 64bit
-1. Copy all the files and folders into the windows PC. 
+1. Copy all the files and folders into the windows PC , and install the mysql in the windows PC. 
 2. Database Migration:
     run in terminal: 
     python manage.py makemigrations
