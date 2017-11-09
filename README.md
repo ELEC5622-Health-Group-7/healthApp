@@ -33,8 +33,9 @@ Doing proper exercises is highly recommended by experts as an effective way to r
 
 #
 Usage: 
-1. Copy the HEM folder into windows PC. Make sure there is run.exe and data.txt in the folder. 
-2. Copy the 
+OS: windows, 64bit
+1. Copy all the files and folders into the windows PC. 
+2. run in terminal: python manage.py runserver
 3. Register on the website
 4. Connect the device
 5. Run local app run.exe
