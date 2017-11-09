@@ -8,7 +8,7 @@ Shengtian Zhang,
 Ziqi Wang, 
 
 #
-This project will aim to build a monitoring system for people with hypertension, especially for paitient before and after the activity, to find the healthy activity and sport for the paitient. 
+This project will aim to build a monitoring system for people with hypertension, especially for patient before and after the activity, to find the healthy activity and sport for the patient. 
 
 
 The system examines the body condition of a high blood pressure patient on daily basis or, before and after he does exercise, and then gives him advice about whether this exercise suits him.
@@ -42,9 +42,9 @@ OS: windows, 64bit
     
 3. run in terminal: 
     python manage.py runserver
-4. Register on the website
+4. Register on the website , then log in the system
 5. Connect the device
-6. Run local app run.exe
-7. Select functions
+6. Run local app run.exe, and choose the functions in the local app, then collecting the relevant data
+7. Select functions in the website
 8. Measure readings
-9. Check Online
+9. Check Online ,and acquiring the evaluation
