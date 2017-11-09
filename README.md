@@ -33,10 +33,11 @@ Doing proper exercises is highly recommended by experts as an effective way to r
 
 #
 Usage: 
-1. Copy the run.exe to windows PC. 
-2. Register on the website
-3. Connect the device
-4. Run local app run.exe
-5. Select functions
-6. Measure readings
-7. Check Online
+1. Copy the HEM folder into windows PC. Make sure there is run.exe and data.txt in the folder. 
+2. Copy the 
+3. Register on the website
+4. Connect the device
+5. Run local app run.exe
+6. Select functions
+7. Measure readings
+8. Check Online
