@@ -35,10 +35,16 @@ Doing proper exercises is highly recommended by experts as an effective way to r
 Usage: 
 OS: windows, 64bit
 1. Copy all the files and folders into the windows PC. 
-2. run in terminal: python manage.py runserver
-3. Register on the website
-4. Connect the device
-5. Run local app run.exe
-6. Select functions
-7. Measure readings
-8. Check Online
+2. Database Migration:
+    run in terminal: 
+    python manage.py makemigrations
+    python manage.py migrate
+    
+3. run in terminal: 
+    python manage.py runserver
+4. Register on the website
+5. Connect the device
+6. Run local app run.exe
+7. Select functions
+8. Measure readings
+9. Check Online
