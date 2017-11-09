@@ -29,3 +29,14 @@ Research and Background:
 Hypertension (HTN or HT), also known as high blood pressure (HBP), is a long-term medical condition in which the blood pressure in the arteries is persistently elevated.High blood pressure usually does not cause symptoms. Long-term high blood pressure, however, is a major risk factor for coronary artery disease, stroke, heart failure, peripheral vascular disease, vision loss, and chronic kidney disease.
 As of 2014, approximately one billion adults or ~22% of the population of the world have hypertension. It is slightly more frequent in men, in those of low socioeconomic status, and prevalence increases with age. It is common in high, medium and low income countries. The prevalence of raised blood pressure is highest in Africa, (30% for both sexes) and lowest in the WHO Region of the Americas (18% for both sexes). In all, a large population from all over the world are suffering from hypertension.
 Doing proper exercises is highly recommended by experts as an effective way to reduce the blood pressure level for hypertension patients. However, a lot of common exercises are not suitable for people suffering from hypertension since they may cause too much burden to patients’ organs. So it is very important to examine whether a kind of exercise is suitable for a specific patient.
+
+
+#
+Usage: 
+1. Copy the run.exe to windows PC. 
+2. Register on the website
+3. Connect the device
+4. Run local app run.exe
+5. Select functions
+6. Measure readings
+7. Check Online
