@@ -34,17 +34,17 @@ Doing proper exercises is highly recommended by experts as an effective way to r
 #
 Usage: 
 OS: windows, 64bit
-## 1. Copy all the files and folders into the windows PC , and install the mysql in the windows PC. 
-## 2. Database Migration:
+1. Copy all the files and folders into the windows PC , and install the mysql in the windows PC. 
+2. Database Migration:
 run in terminal: 
-"python manage.py makemigrations"
-"python manage.py migrate"
+2.1 "python manage.py makemigrations" and 
+2.2 "python manage.py migrate"
     
-## 3. run in terminal: 
+3. run in terminal: 
 "python manage.py runserver"
-## 4. Register on the website , then log in the system
-## 5. Connect the device
-## 6. Run local app run.exe, and choose the functions in the local app, then collecting the relevant data
-## 7. Select functions in the website
-## 8. Measure readings
-## 9. Check Online ,and acquiring the evaluation
+4. Register on the website , then log in the system
+5. Connect the device
+6. Run local app run.exe, and choose the functions in the local app, then collecting the relevant data
+7. Select functions in the website
+8. Measure readings
+9. Check Online ,and acquiring the evaluation
