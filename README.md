@@ -34,7 +34,7 @@ Doing proper exercises is highly recommended by experts as an effective way to r
 #
 Usage: 
 OS: windows, 64bit
-1. Copy all the files and folders into the windows PC , and install the mysql in the windows PC. 
+1. Copy all the files and folders into the windows PC , and install the mysql in the windows PC. After installing the mysql, you also need to install the MySQLdb.
 2. Database Migration:
 run in terminal: 
 2.1 "python manage.py makemigrations" and 
